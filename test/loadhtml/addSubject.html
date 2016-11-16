@@ -1,0 +1,289 @@
+<style>
+	.Attributecontent_left select{width:100px}
+	textarea,input{font-size:12px;}
+	.Answerpart_right textarea,.Problemcontent textarea{width:90%;height:70%;border:none;padding:10px;}
+	.chapterAnswer{ display:none}
+</style>
+<script type="text/javascript">
+    $(function(){
+         //根据方向选择相应的知识
+         $.getJSON("data/department.json",function(data){
+         	//console.log(data);
+            data.forEach(function(item){
+            var option=$("<option id="+item['id']+"  name="+item['name']+">"+item.name+"</option>")
+            $(".Attributecontent_left select:eq(1)").append(option);
+             
+            });
+             //模拟点击事件 
+            $("select[name='department']").children("option").eq(1).trigger("click");
+            })
+            
+          //筛选
+         $("select[name='department']").on("click","option",function(event){
+         	//console.log($(this).val())
+        $(".Attributecontent_left select:eq(3)").empty();
+          if($(this).val()=="WebUI"){
+             $.getJSON("data/test.json",function(data){
+            data.forEach(function(item){
+                //console.log(item.department.id);
+                if(item.department.id==1){
+            var option=$("<option id="+item['id']+"   name="+item['name']+">"+item.title+"</option>")
+            $(".Attributecontent_left select:eq(3)").append(option);
+            }
+            })                
+         })
+          }else if($(this).val()=="JavaEE"){
+             $.getJSON("data/test.json",function(data){
+            data.forEach(function(item){
+                //console.log(item.department.id);
+                if(item.department.id==2){
+            var option=$("<option id="+item['id']+"   name="+item['name']+">"+item.title+"</option>")
+            $(".Attributecontent_left select:eq(3)").append(option);
+            }
+            })            
+         })
+          }  
+         });//
+                       
+         
+         //请求题型框数据
+          $.getJSON("data/type1.json",function(data){
+            data.forEach(function(item){
+         var option=$("<option id="+item['id']+"   name="+item['name']+">"+item.realName+"</option>")
+            $(".Attributecontent_left select:eq(0)").append(option); 
+            })
+            $("select[name='type']").trigger("change");            
+         })
+           //请求难度框数据
+          $.getJSON("data/nandu1.json",function(data){
+            //console.log(data);
+            data.forEach(function(item){
+                //console.log(item.realName);
+         var option=$("<option id="+item['id']+"   value="+item['id']+" name="+item['name']+">"+item.realName+"</option>")
+            $(".Attributecontent_left select:eq(2)").append(option); 
+            })
+                       
+         })
+         //题型框 多选框
+         console.log($(".Attributecontent_left select:eq(0)"))
+         $(".Attributecontent_left select:eq(0)").on("click","option",function(event){
+             var val = $(this).val();
+             if(val=="单选题"){
+                 $(".Answerpart input").removeAttr("radio");
+                 $(".Answeroptions").css("display","block");
+                 $(".Answerpart input").prop("type","radio");
+               } else if(val=="复选题"){
+                $(".Answerpart input").removeAttr("checked");
+                $(".Answeroptions").css("display","block");
+                $(".Answerpart input").prop("type","checkbox");
+               }else{
+                $(".chapterAnswer").css("display","block");
+                $(".Answeroptions").css("display","none");
+               }
+         })
+             
+
+
+        //保存并继续
+        //console.log($(".btn_left span:eq(0)"))
+        $("form[name='subjectAddForm']").off("submit");
+       $("form[name='subjectAddForm']").on("submit",function(){
+           //获取值
+        var type=$("select[name='type'] option:selected").attr("id")
+        console.log(type);
+       var department=$("select[name='department'] option:selected").attr("id");
+        console.log(department);
+        var level=$("select[name='level'] option:selected").attr("id");
+        console.log(level);
+        var topic=$("select[name='topics'] option:selected").attr("id");
+        console.log(topic);
+       var stem=$(".Problem textarea[name='stem']").val();
+        console.log(stem);
+        var analysis = $("textarea[name='analysis']").val();
+        console.log(analysis)
+
+        //获取选框内容
+        var choiceContents=new Array();
+        for(var i=0;i<$(".Answercontent textarea").length;i++){
+          choiceContents[i]=$(".Answercontent textarea").eq(i).val();
+               // console.log(choiceContents[i]);
+       }
+       console.log(choiceContents)
+       //获取选项
+       var correctChoices=new Array();
+        $(".Answerpart_left input").map(function(index,item){
+        correctChoices[index]=$(item).prop("checked");
+        
+       });
+       // console.log(correctChoices)
+   $.ajax("http://172.16.0.5:7777/test/exam/manager/saveSubject.action",{
+            method:"post",
+            traditional :true, 
+            data:{
+                "subject.department.id":department,
+                "subject.topic.id":topic,
+                "subject.subjectType.id":type,
+                "subject.subjectLevel.id":level,
+                "subject.stem":stem,
+                //"subject.answer":null,
+                "subject.analysis":analysis,
+                "choiceContent":choiceContents,
+                "choiceCorrect":correctChoices
+            },
+            success: function(data){
+                alert(data);
+            },
+            error:function(data){
+                console.log(data)
+                }
+        });
+        return false;
+
+        });
+        //保存并继续
+	$(".btn_left span:eq(0)").off("click");
+	$(".btn_left span:eq(0)").on("click",function(){
+		$("form[name='subjectAddForm']").trigger("submit");
+		  
+		
+	});
+	//保存并关闭
+	$(".btn_left span:eq(1)").off("click");
+	$(".btn_left span:eq(1)").on("click",function(event){
+		$(".deletetitle").trigger("submit");
+		console.log(url )
+		 var  url = $(this).attr("val");
+         $(".right").load(url);
+	});
+         
+    })
+</script>
+	
+		<!--题目添加-->
+                <div class="editingarea">
+                	 <form action="" method="post" name="subjectAddForm">
+                    <div class="c_flex"><span class="c_flexible"></span></div>
+                    <div class="chosetitle">添加题目  <a href="#" class="deletetitle">删除</a></div>
+                   
+                	<div class="c_editview">
+                    	<div class="Attribute">
+                             <div class="Attributetit">题目属性</div>
+                             <div class="Attributecontent">
+                                 <div class="Attributecontent_left">
+                                     <b>
+                                     	题型：<select name="type">
+                                     		<!--<option value="radio">单选题</option>
+                                            <option value="checkbox">多选题</option>
+                                            <option value="chapter">问答题</option>-->
+                                       	</select>
+                                     </b>
+                                     <b>
+                                     	方向：<select name="department">
+                                     		
+                                       	</select>
+                                     </b>
+                                     <b>
+                                     	难度：<select name="level">
+                                     		
+                                       	</select>
+                                     </b>
+                                     <b>
+                                     	知识点：<select name="topics">
+                                     		
+                                        </select>
+                                     </b>
+                                     
+                                     <!--
+									 <div class="Attributecontent_right">
+                                     	<a href="#" class="addAttr">添加</a>
+                                        <a href="#" class="leftmove">左移</a>
+                                     </div>
+                                     -->
+                                 </div>              
+                             </div>
+                        </div>
+                        <div class="Problem">
+                            <div class="Attributetit">题目题干</div>
+                            <div>
+                                <textarea name="stem" cols="80" rows="4"></textarea>                              
+                            </div>
+                        </div>
+                        <div class="Answeroptions">
+                            <div class="Attributetit">答案选项<em>(通过勾选每个选项下面的框可以设置正确答案)</em></div>
+                            <div class="c_condition"><span class="icon_add">
+                            	<em class="icon_r" style="float: left">添加选项</em></span>
+                            </div>
+                            <div class="Answercontent">
+                            	<!--选项-->
+                                <div class="Answerpart">
+                                     <div class="Answerpart_left">
+                                         <p>A</p><span>
+                                         <input type="radio" name="answer"/></span>
+                                     </div>
+                                     <div class="Answerpart_right">
+                                     	<textarea name="content"></textarea>   
+                                     </div>
+                                     <div class="clear"></div>
+                                </div>
+                                <div class="Answerpart">
+                                    <div class="Answerpart_left">
+                                        <p>B</p><span>
+                                        <input type="radio" name="answer"/>
+                                        </span>
+                                    </div>
+                                    <div class="Answerpart_right">
+                                    	<textarea name="content"></textarea>  
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="Answerpart">
+                                    <div class="Answerpart_left">
+                                        <p>C</p><span>
+                                        <input type="radio" name="answer"/>
+                                        </span>
+                                    </div>
+                                    <div class="Answerpart_right">
+                                    	<textarea name="content"></textarea>  
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="Answerpart">
+                                    <div class="Answerpart_left">
+                                        <p>D</p><span>
+                                        <input type="radio" name="answer"/>
+                                        </span>
+                                    </div>
+                                    <div class="Answerpart_right">
+                                    	<textarea name="content"></textarea>  
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="Problem chapterAnswer">
+                            <div class="Attributetit">答案</div>
+                            <div class="Problemcontent">
+                            	<textarea name="answer"></textarea> 
+                            </div>
+                        </div>
+                        
+                        <div class="Problem">
+                            <div class="Attributetit">答案解析</div>
+                            <div class="Problemcontent">
+                            	<textarea name="analysis"></textarea> 
+                            </div>
+                        </div>
+                        
+                        <div class="Problem">
+                            <div class="fistproblm"><span>1.</span><a href="#"></a></div>
+                            <div class="Problemcontent"></div>
+                        </div>
+                        
+                        <div class="btn_left">
+                            <span class="btnL"><em class="btnR">保存并继续</em></span><span class="btnL" val="loadhtml/allSubject.html"><em class="btnR">保存并关闭</em></span>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+

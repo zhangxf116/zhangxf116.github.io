@@ -1,0 +1,14 @@
+[
+	{"id":0,
+	"name":"all",
+	"realName":"全部"},
+	{"id":1,
+	"name":"radio",
+	"realName":"简单"},
+	{"id":2,
+	"name":"check",
+	"realName":"较难"},
+	{"id":3,
+	"name":"chapter",
+	"realName":"很难"}
+]
