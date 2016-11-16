@@ -1,0 +1,215 @@
+/* CSS Document */
+*{
+	padding:0 auto;
+	margin:0 auto;
+	font-family:"宋体";
+	color:#A9A9A9;}
+ul{
+	list-style-type:none;}
+a{
+	text-decoration:none;}
+a:hover{
+	color:#900;}
+.clear{
+	clear:both;}
+	/*nav*/
+#nav{
+	height:50px;
+	line-height:50px;
+	background:#000;}
+#nav_left{
+	float:left;
+	color:#FFF;
+	margin-left:60px;}
+#nav_right{
+	float:right;}
+#nav_right ul{}
+#nav_right ul li{
+	display:inline;
+	padding-left:18px;}
+#nav_right ul li a{
+	padding-right:18px;
+	color:#fff;}
+	/*广告*/
+#gg{
+	height:800px;
+	background:url(../images/miui7.5-001.jpg) no-repeat;
+	background-size:100% 100%;
+	overflow:hidden;}
+#gg_con{
+	width:500px;
+	height:110px;
+	margin-top:230px;
+	color:#C2C2C2;}
+#gg_con_top{
+	width:160px;
+	height:40px;
+	border:1px solid #333;
+	border-radius:40px;/*css3*/
+	line-height:40px;
+	text-align:center;
+	border-color:#C2C2C2;}
+#gg_con p{
+	text-align:center;
+	letter-spacing:2px;}
+	/*屏幕*/
+#pm{
+	height:1180px;
+	background:url(../images/miui7.5-031.jpg) no-repeat center center;/*是图片中间的部分扩大*/
+	overflow:hidden;/*溢出隐藏*/}
+#pm_con{
+	width:555px;
+	height:100px;
+	margin-top:100px;
+	text-align:center;}
+#pm_con p{
+	font-size:28px;
+	font-weight:bold;
+	font-family:"宋体";}
+#pm_con span{
+	color:#8F8E8B;
+	font-size:14px;}
+	/*content*/
+#content{
+	width:1200px;
+	height:7100px;
+	overflow:hidden;}
+#content_word1{
+	width:730px;
+	height:175px;
+	margin-top:100px;
+	text-align:center;}
+#content_word1 h5{
+	font-size:28px;
+	color:#5C5878;
+	font-weight:normal;}
+#content_word1 p{
+	color:#A9A9A9;
+	font-size:16px;}
+#content_word1 span{
+	color:#A9A9A9;
+	font-size:16px;}
+#img1{
+	margin-top:60px;}
+#img_word{
+	height:50px;
+	color:#A9A9A9;
+	font-size:16px;
+	margin-top:10px;
+	line-height:50px;
+	text-align:center;}
+.img_word_left{
+	width:315px;
+	float:left;
+	margin-left:40px;}
+.img_word_center{
+	width:315px;
+	float:left;
+	margin-left:80px;}
+.img_word_right{
+	width:315px;
+	float:right;
+	margin-right:40px;}
+	/*实例*/
+#content_sl{
+	height:380px;
+	margin-top:60px;
+	text-align:center;}
+#content_sl h3{
+	font-size:20px;
+	color:#75829E;
+	font-weight:normal;
+	margin-bottom:30px;
+	font-family:"宋体";}
+#content_sl_left{
+	float:left;
+	margin-top:20px;
+	margin-left:250px;}
+#content_sl_right{
+	float:right;
+	margin-top:20px;
+	margin-right:250px;}
+	/*字体*/
+#zt{
+	width:1142px;
+	height:733px;
+	margin-top:200px;
+	text-align:center;
+	letter-spacing:3px;}
+#zt h3{
+	font-size:36px;}
+	/*yys*/
+#yys{
+	width:1142px;
+	height:733px;
+	margin-top:50px;
+	text-align:center;
+	letter-spacing:3px;}
+#yys h3{
+	font-size:30px;}
+	/*srf*/
+#srf{
+	width:1142px;
+	height:733px;
+	margin-top:200px;
+	text-align:center;
+	letter-spacing:3px;}
+#srf h3{
+	font-size:30px;}
+	/*xfq*/
+#xfq{
+	width:1142px;
+	height:733px;
+	margin-top:200px;
+	text-align:center;
+	letter-spacing:3px;}
+#xfq h3{
+	font-size:30px;}
+	/*dx*/
+#dx{
+	width:1142px;
+	height:733px;
+	margin-top:100px;
+	text-align:center;}
+#dx h3{
+	font-size:30px;}
+#dx p{
+	font-size:14px;
+	line-height:22px;}
+		/*sim*/
+#sim{
+	width:1142px;
+	height:733px;
+	margin-top:200px;
+	text-align:center;
+	letter-spacing:3px;}
+#sim h3{
+	font-size:30px;}
+#sim p{
+	font-size:16px;
+	line-height:25px;}
+#sim span{
+	font-size:14px;
+	color:#CCC;}
+	/*footer*/
+#footer{
+	height:160px;
+	background:#F2F2F2;
+	overflow:hidden;}
+#footer_menu{
+	width:550px;
+	height:65px;
+	margin-top:50px;
+	text-align:center;}
+#footer_menu ul{
+	padding-left:1px;}
+#footer_menu ul li{
+	display:inline;
+	padding-left:14px;}
+#footer_menu ul li a{
+	padding-right:15px;}
+#footer_menu p{
+	font-size:10px;
+	line-height:60px;}
+
+

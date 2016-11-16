@@ -1,0 +1,73 @@
+nav{
+    height: 50px;
+    background: #00ae66;
+    line-height: 50px;
+}
+nav :first-child{
+    margin-left: 20px;
+}
+nav :last-child{
+    margin: 10px 20px;
+    position: absolute;
+    top: -5px;
+    right: 10px;
+}
+.input{
+    height: 80px;
+    background: #f4f4f4;
+}
+.input-group{
+    width: 90%;
+    margin: auto;
+    padding-top: 15px;
+}
+.input .input-group input{
+    height:50px;
+}
+.dropdown{
+    margin: auto;
+}
+.dropdown .list{
+    height: 40px;
+    text-align: center;
+    border: 1px solid #c0c0c0;
+}
+.dropdown .list .active{
+    border-left: none;
+}
+.dropdown .list li{
+    color: #000000;
+    font-size: 20px;
+    padding:0 18px;
+    margin-top: 5px;
+    border-left: 1px solid #c0c0c0;
+}
+.container{
+
+}
+.container .media .media-left img{
+    width: 150px;
+    height: 100px;
+}
+.container .media{
+    border-bottom: 1px solid #dbdbdb;
+}
+.container .media .media-body p{
+    line-height: 10px;
+}
+.container .media .media-body .media-heading{
+    font-size: 20px;
+    font-weight: bold;
+}
+.container .media .media-body ul :nth-child(2){
+    border: 1px solid #f5cc3f;
+}
+.container .media .media-body ul li{
+    border: 1px solid #2a6496;
+}
+.container .media .media-body span{
+    color: #e96744;
+    font-weight: bold;
+    font-size: 25px;
+    float: right;
+}

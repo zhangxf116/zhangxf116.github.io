@@ -1,0 +1,32 @@
+/*list页面代码*/
+div.header{
+    width: 1930px;
+    height: 80px;
+    border-bottom: 1px solid #cccccc;
+    font-size: 22px;
+    margin: auto;
+    padding-top: 20px;
+}
+.list_nav{
+    background: none;
+}
+div.header>img{
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
+/*内容*/
+div.content{
+    width: 90%;
+    height: 1000px;
+    margin: 0 auto;
+    background: #22e7ff;
+    display: flex;
+}
+div.box{
+    float: left;
+    width: 300px;
+    height: 400px;
+    background: #3aff32;
+    margin-left: 20px;
+}

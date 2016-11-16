@@ -1,0 +1,69 @@
+.form-group .left{
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #c0c0c0;
+    color: #c0c0c0;
+    font-size: 16px;
+}
+.form-group .left div{
+    margin-right: 20px;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    color: #000000;
+    text-align: center;
+    border: 1px solid #c0c0c0;
+    float: right;
+    margin-top: 5px;
+}
+.form-group .content{
+     height: 50px;
+     line-height: 50px;
+     border-bottom: 1px solid #c0c0c0;
+     color: #c0c0c0;
+     font-size: 16px;
+ }
+.form-group .right{
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #c0c0c0;
+    color: #c0c0c0;
+    font-size: 16px;
+}
+.form-group .login button{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #39ac6a;
+    border: 1px solid #c0c0c0;
+    color: #FFFFFF;
+    font-size: 16px;
+    margin-top: 10px;
+}
+.foot{
+    margin-top: 10px;
+}
+.foot span{
+    color: #39ac6a;
+}
+.foot div{
+
+    float: right;
+}
+
+/*登录页面的css*/
+.form-group .row{
+    font-weight: bold;
+    padding:10px 0;
+    text-align: center;
+    /*margin: 2px 0;这样设置会使的row的长度变短*/
+    margin: 2px 0;
+}
+.form-group .row :first-child{
+    padding-bottom: 10px;
+    border-bottom: 3px solid #39ac6a;
+}
+.form-group .row :last-child{
+    padding-bottom: 10px;
+    border-bottom: 3px solid #dbdbdb;
+}

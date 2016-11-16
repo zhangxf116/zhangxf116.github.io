@@ -1,0 +1,97 @@
+/*头部*/
+.header{
+    width: 100%;
+    height: 260px;
+}
+.header{
+    background: url('../Images/1-index_01_01.jpg') no-repeat left;
+    background-size:100% 260px;
+}
+.header>.row .left{
+    width: 80px;
+    height: 30px;
+    background: #000000;
+    background: rgba(255,255,255,0.2);
+    /*opacity:.22;*/
+    /*filter: alpha(opacity=22);*/
+    margin:30px 20px;
+    margin-left: 50px;
+    line-height: 30px;
+    border-radius: 20px;
+    color: #FFFFFF;
+}
+.header>.row .right{
+    width: 120px;
+    height: 50px;
+    color: #FFFFFF;
+    float: right;
+    margin: 15px 10px;
+}
+.header>.row .right span{
+   padding: 10px;
+}
+.header .input{
+    width: 95%;
+    height: 40px;
+    margin: auto;
+    border-radius: 10px;
+}
+.header>.input .input-group{
+    margin-top: 120px;
+}
+
+/*中间两部分内容*/
+.center{
+    width: 100%;
+    height: 100px;
+    margin: auto;
+    margin-top: 30px;
+}
+.center>.left{
+    text-align: center;
+}
+.center>.right{
+    text-align: center;
+}
+.center>.nav1{
+    border-top:1px solid #c5c5c5;
+    height: 30px;
+    background: #f4f4f4;
+    margin-top: 100px;
+}
+.center>.nav1 img{
+    margin-top:30px;
+    width: 100%;
+    height: 200px;
+}
+.center>.nav2{
+    border-bottom:1px solid #c5c5c5;
+    height: 30px;
+    background:#f4f4f4;
+    margin-top:200px;
+}
+/*底部*/
+.footer>.font{
+    height: 60px;
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 280px;
+    padding-left: 40px;
+    border-bottom: 1px solid #c5c5c5;
+}
+.footer .media>.media-left img{
+    width: 150px;
+    height: 120px;
+}
+.footer .media>.media-body>ul :nth-child(2){
+    border: 1px solid #f5cc3f;
+}
+.footer .media>.media-body .media-heading{
+    font-size: 20px;
+    font-weight: bold;
+}
+.footer .media>.media-body>ul>li{
+    border: 1px solid #2a6496;
+}
+
+
